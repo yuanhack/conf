@@ -1,0 +1,10 @@
+#!/bin/sh
+
+dir=/stash
+
+ln -svf ${dir}/conf/vim/.vimrc    ~
+ln -svf ${dir}/conf/vim/.vim      ~
+ln -svf ${dir}/conf/bash/.bashrc  ~
+ln -svf ${dir}/conf/bash/.alias  ~
+
+${dir}/conf/git/gitconfig

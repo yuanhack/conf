@@ -1,0 +1,17 @@
+#!/bin/sh
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias la='ls -a'
+alias ll='ls -l'
+alias cl='cd $(pwd -P)'
+alias cl..='cd $(pwd -P) && ..'
+alias csc='cscope -Rbq'
+alias ntpsyn='sudo /usr/sbin/ntpdate pool.ntp.org'
+alias s='sudo -s'
+alias e='exit'
+alias ls='ls --color=auto'
+alias lf='ls --full-time'
+alias isgitdir='git rev-parse --git-dir > /dev/null 2>&1'
+alias csRbq='cscope -Rbq'
+alias cpgitignore='cp /repository/conf/git/gitignore_global .gitignore'

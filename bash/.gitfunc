@@ -1,0 +1,8 @@
+#!/bin/sh
+
+gitobj() { 
+	for arg in $@; do 
+		git cat-file -t $arg >/dev/null && 
+			printf "%s %-6s %s\n" `git rev-parse $arg` `git cat-file -t $arg` $arg
+	done 
+}
