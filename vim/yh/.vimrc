@@ -6,6 +6,9 @@ set tags+=~/.systag
 set incsearch
 set hlsearch
 
+set nocompatible
+filetype plugin indent on
+
 set ts=4            " tabstop
 set sw=4            " shiftwidth 
 "set et              " expandtab tab自动转换空格
