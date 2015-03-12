@@ -34,8 +34,6 @@ cscope.po.out
 *.gz
 *.bz2
 
-mtcping-*/
-
 !*.a
 !*.so
 !.gitignore
