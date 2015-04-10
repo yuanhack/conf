@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+	echo "Usage: $(basename $0) <process>"
+	exit 1
+fi
+ps -C $1 1>/dev/null 2>&1 || exit 1
+ps -eo pid,lstart | grep `ps -C $1 -o pid --noheader`

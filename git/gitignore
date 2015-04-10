@@ -1,18 +1,12 @@
-.*
-*.o
-*.a
-*.bak
-*~
-*.so
-*.log
-
+### git's track ignore file-list.
+### vim tempfile
+.*.swp
 tags
-
 cscope.in.out
 cscope.out
 cscope.po.out
 
-# Source Insight
+### Source Insight
 *.IAB
 *.IAD
 *.IMB
@@ -25,17 +19,22 @@ cscope.po.out
 *.WK3
 *.SearchResults
 
-# SlickEdit
+### SlickEdit
 *.vpwhist
 *.vtg
 *.vpj
 *.vpw
 
+!.gitignore
+!.gitmodules
+
+# Other ignore the trace files
+*.o
+*.a
+*.bak
+*~
+*.so
+*.log
 *.gz
 *.bz2
 
-!*.a
-!*.so
-!.gitignore
-
-# Add other ignore the trace files

@@ -1,5 +1,5 @@
 
-test -s ~/.alias && . ~/.alias || true
+test -s ~/.aliasrc && . ~/.aliasrc || true
 test -s /etc/bashrc && . /etc/bashrc || true
 test -s ~/.gitfunc && . ~/.gitfunc || true
 
@@ -11,10 +11,33 @@ cdl()
     cd $1
     cl
 }
+
 cdfd()
 {
     cd /proc/$1/fd
 }
+
+rm1()
+{
+	if [ $# -lt 1 ]; then
+		echo missing operand
+		return 1
+	fi
+
+	if [ ! -d ~/tmp ]; then
+		mkdir -p ~/tmp
+	fi  
+	mv $@ ~/tmp
+	return $?
+}
+rm2()
+{
+	test $# -lt 1 && echo missing operand && return 1
+	test ! -d ~/tmp && mkdir -p ~/tmp
+	mv $@ ~/tmp
+	return $?
+}
+alias rm='rm2'
 
 ###########################
 

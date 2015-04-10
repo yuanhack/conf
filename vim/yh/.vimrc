@@ -1,12 +1,33 @@
+" 在处理未保存或只读文件的时候，弹出确认  
+set confirm
+
+" 不要使用vi的键盘模式，而是vim自己的  
+set nocompatible
+
+" history文件中需要记录的行数  
+set history=500
+
+set report=0
+
+" 高亮显示匹配括号
+set showmatch
+
+" 正在被搜索的词句高亮显示
+set hlsearch
+
+" 正在被搜索的词句不高亮显示
+"set nohlsearch
+
+" 搜索输入时逐字符高亮显示和查找
+set incsearch
+
 
 set nonumber
 set ruler
 set showcmd
 set tags+=~/.systag
-set incsearch
-set hlsearch
 
-set nocompatible
+"set nocompatible
 filetype plugin indent on
 
 set ts=4            " tabstop
@@ -23,7 +44,7 @@ set laststatus=2 " 总是显示状态栏
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white 
 "hi CursorLine  cterm=bold ctermbg=0
 "highlight StatusLine cterm=italic ctermfg=10 ctermbg=4
-highlight StatusLine cterm=none ctermfg=10 ctermbg=4
+""highlight StatusLine cterm=none ctermfg=10 ctermbg=4
 "highlight statusline term=bold ctermbg=5 guibg=DarkMagenta
 " set foldmethod=syntax
 syntax on

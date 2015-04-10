@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+usage()
+{
+	echo "  dest create soft link to current directory"
+}
+
+test $# -eq 0 && echo "Usage: $(basename $0) dest"&& usage && exit 1
+
+ln -s $(pwd) $@

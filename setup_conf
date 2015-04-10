@@ -1,10 +1,10 @@
 #!/bin/sh
 
-dir=/stash
+dir=`pwd`
 
-#ln -svf ${dir}/conf/vim/.vimrc    ~
-#ln -svf ${dir}/conf/vim/.vim      ~
-ln -svf ${dir}/conf/bash/.bashrc  ~
-ln -svf ${dir}/conf/bash/.alias  ~
+ln -svf ${dir}/vim/yh/.vimrc    ~
+ln -svf ${dir}/vim/yh/.vim      ~
+ln -svf ${dir}/bash/.bashrc  ~
+ln -svf ${dir}/bash/.aliasrc  ~
 
-${dir}/conf/git/gitconfig
+${dir}/git/gitconfig
