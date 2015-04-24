@@ -29,12 +29,12 @@ cscope.po.out
 !.gitmodules
 
 # Other ignore the trace files
-*.o
-*.a
-*.bak
-*~
-*.so
-*.log
-*.gz
-*.bz2
+#*.o
+#*.a
+#*.bak
+#*~
+#*.so
+#*.log
+#*.gz
+#*.bz2
 

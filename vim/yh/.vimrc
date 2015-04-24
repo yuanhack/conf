@@ -32,7 +32,7 @@ filetype plugin indent on
 
 set ts=4            " tabstop
 set sw=4            " shiftwidth 
-"set et              " expandtab tab自动转换空格
+set et              " expandtab tab自动转换空格
 autocmd FileType c,cpp set sw=4 | set ts=4 | set et 
 
 set pastetoggle=<F5>
