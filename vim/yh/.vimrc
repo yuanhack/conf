@@ -200,3 +200,20 @@ imap <ESC>g<CR> <ESC>:GDB<CR>li
 nmap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>
 imap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>li
 
+" " ==========================  
+" " GNU 缩进风格  
+" " ==========================  
+" " 如果不喜欢GNU 缩进风格  
+" " 请注释掉函数后的au 一行  
+" " ==========================  
+" function! GnuIndent ()  
+"   let b:did_ftplugin = 1  
+"   setlocal cindent  
+"   setlocal shiftwidth=4 tabstop=4 textwidth=78 softtabstop=4
+"   setlocal cinoptions=>2s,e-s,n-s,{1s,^-s,Ls,:s,=s,g0,+.5s,p2s,t0,(0  
+"   setlocal formatoptions-=t formatoptions+=croql  
+"   setlocal comments=sO:*\ -,mO:\ \ \ ,exO:*/,s1:/*,mb:\ ,ex:*/  
+"   set cpoptions-=C  
+"   set expandtab smarttab autoindent smartindent  
+" endfunction  
+" au FileType c,cpp,h,hh call GnuIndent()
