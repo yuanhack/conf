@@ -41,7 +41,7 @@ alias rm='rm2'
 
 ###########################
 
-PATH=$PATH:/usr/local/bin:/sbin:/usr/sbin:~/bin:~/bin:/repository/bin/:.
+PATH=/usr/local/bin:/sbin:/usr/sbin:~/bin:~/bin:/repository/bin/:$PATH:.
 
 #PS1='[\e[31m$?\e[m \e[36m\t\e[m \w]\n\e[35m\u@\h\e[m \$ '
 #PS1='[\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m]\n\w \$ '

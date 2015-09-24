@@ -155,7 +155,7 @@ if !exists('loaded_taglist')
     " Vertically split taglist window width setting
     " 列表宽度
     if !exists('Tlist_WinWidth')
-        let Tlist_WinWidth = 30
+        let Tlist_WinWidth = 45
     endif
 
     " Horizontally split taglist window height setting

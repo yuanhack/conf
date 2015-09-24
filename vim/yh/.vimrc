@@ -46,7 +46,8 @@ set laststatus=2 " 总是显示状态栏
 "highlight StatusLine cterm=italic ctermfg=10 ctermbg=4
 ""highlight StatusLine cterm=none ctermfg=10 ctermbg=4
 "highlight statusline term=bold ctermbg=5 guibg=DarkMagenta
-" set foldmethod=syntax
+set foldmethod=syntax
+set foldcolumn=6
 syntax on
 
 " 窗口切换
@@ -105,7 +106,7 @@ nmap fs<cr> :set foldmethod=syntax<cr>
 " imap <F11> <ESC>:cs kill 0<cr>:!cscope -Rbq<cr>:cs add cscope.out<CR>:!echo cscope has reconstruction<cr>
 
 " 禁用ctrl+z切换vim到后台,不然ctrl+z之后,fg回到vim后,cscope的连接就失效了,没找到办法回复,重建连接也不行
-map  :f
+"map  :f
 
 " ctags 快捷生成
 nmap <F12>      :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; echo ctags has reconstruction<CR>
