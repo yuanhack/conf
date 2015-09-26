@@ -21,7 +21,6 @@ set hlsearch
 " 搜索输入时逐字符高亮显示和查找
 set incsearch
 
-
 set nonumber
 set ruler
 set showcmd
@@ -35,7 +34,6 @@ set sw=4            " shiftwidth
 set et              " expandtab tab自动转换空格
 autocmd FileType c,cpp set sw=4 | set ts=4 | set et 
 
-set pastetoggle=<F5>
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set cindent 
 set laststatus=2 " 总是显示状态栏
@@ -50,17 +48,6 @@ set foldmethod=syntax
 set foldcolumn=6
 syntax on
 
-" 窗口切换
-nmap <F2>       <ESC>
-imap <F2>       <ESC>l
-
-" 代码高亮开关键定义 Fangxm
-nmap <silent> <F3> :if exists("syntax_on") <Bar>
-	\   syntax off <Bar>
-	\ else <Bar>
-	\   syntax on <Bar>
-	\ endif <CR>
-nmap <F4> :Tlist
 
 " map <F6> <Esc>:1,$g/^[  ]*$/d<CR><Esc> " 删除空白行，包括 空格和 tab键 的空行
 " map <F6> <Esc>:1,$g/^$/d<CR><Esc> 		" 删除空行
@@ -73,11 +60,6 @@ map dnl 	<esc>:1,$g/^$/d<CR><esc>
 function Del()
 	execute dnl
 endfunction
-
-" <F7> vimgdb 占用
-
-"nmap <F8> :set number<cr>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " FAST COMMENT OR DEL COMMENT
@@ -108,9 +90,6 @@ nmap fs<cr> :set foldmethod=syntax<cr>
 " 禁用ctrl+z切换vim到后台,不然ctrl+z之后,fg回到vim后,cscope的连接就失效了,没找到办法回复,重建连接也不行
 "map  :f
 
-" ctags 快捷生成
-nmap <F12>      :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; echo ctags has reconstruction<CR>
-imap <F12> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; echo ctags has reconstruction<CR>
 
 
 
@@ -177,11 +156,6 @@ nmap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR> 
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" 设置使用 QuickFix 窗口显示 cscope, make 等结果
-set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
-nmap <F9>  :cp<cr>
-nmap <F10> :cn<cr>
-
 " 让vim记忆上次编辑的位置
 if has("autocmd")
 autocmd BufReadPost *
@@ -198,8 +172,34 @@ function GDB()
 endfunction
 nmap g<CR>      <ESC>:GDB<CR>
 imap <ESC>g<CR> <ESC>:GDB<CR>li
-nmap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>
-imap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>li
+" nmap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>
+" imap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>li
+
+nmap <F2>      :cs kill 0<cr>:!cscope -Rbq<cr>:cs add cscope.out<CR>:!echo cscope has reconstruction<cr>
+imap <F2> <ESC>:cs kill 0<cr>:!cscope -Rbq<cr>:cs add cscope.out<CR>:!echo cscope has reconstruction<cr>
+" ctags 快捷生成
+nmap <F3>      :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; echo ctags has reconstruction<CR>
+imap <F3> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .; echo ctags has reconstruction<CR>
+nmap <F4> <esc>:Tlist<cr>
+nmap <F5> :cp<cr>
+nmap <F6> :cn<cr>
+" <F7> vimgdb used, KeyMapConfig on-off
+set pastetoggle=<F8>
+set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+nmap <F9>  <esc><c-w>10<
+nmap <F10> <esc><c-w>10>
+nmap <F11> <esc><c-w>10-
+nmap <F12> <esc><c-w>10+
+" nmap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>
+" imap <F11>       <ESC>:bel 30vsplit gdb-variables<CR>li
+" 代码高亮开关键定义 Fangxm
+" nmap <silent> <F12> :if exists("syntax_on") <Bar>
+" 	\   syntax off <Bar>
+" 	\ else <Bar>
+" 	\   syntax on <Bar>
+" 	\ endif <CR>
+
+set makeprg=clear&&make
 
 " " ==========================  
 " " GNU 缩进风格  
