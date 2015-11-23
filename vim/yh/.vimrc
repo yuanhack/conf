@@ -35,6 +35,7 @@ set et              " expandtab tab自动转换空格
 autocmd FileType c,cpp set sw=4 | set ts=4 | set et 
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
+set autoindent
 set cindent 
 set laststatus=2 " 总是显示状态栏
 "set mouse=a      " 此开关当用鼠标选择时不选择行号, 关闭该项mouse=

@@ -43,10 +43,7 @@ alias rm='rm2'
 
 PATH=/usr/local/bin:/sbin:/usr/sbin:~/bin:~/bin:/repository/bin/:$PATH:.
 
-#PS1='[\e[31m$?\e[m \e[36m\t\e[m \w]\n\e[35m\u@\h\e[m \$ '
-#PS1='[\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m]\n\w \$ '
-PS1='\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m\n[\w] \$ '
-#PS1='[\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m] \$ '
+#PS1='\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m\n[\w] \$ '
 
 # 自定义依据 uid==0(root) 追加后缀
 #if [ $UID -eq 0 ]; then
@@ -54,6 +51,19 @@ PS1='\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m\n[\w] \$ '
 #else
 #        PS1=$PS1'> '
 #fi
+
+function color_my_prompt {
+    local __user_and_host="\[\033[01;32m\]\u@\h"
+    local __cur_location="\[\033[01;34m\]\w"
+    local __git_branch_color="\[\033[31m\]"
+    #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
+    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __prompt_tail="\[\033[35m\]$"
+    local __last_color="\[\033[00m\]"
+    #export PS1="$? $__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
+    export PS1="\e[31m$? \e[36m\t \e[35m\u@\h \e[32m$__git_branch \e[m\n[\w] \$ "
+}
+color_my_prompt
 
 set -o ignoreeof
 
