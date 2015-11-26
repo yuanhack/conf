@@ -39,9 +39,15 @@ rm2()
 }
 alias rm='rm2'
 
-###########################
+####################################################################
+# CentOS Linux release 7.0.1406 (Core) default PATH:
+#   /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:~/bin
+####################################################################
+PATH=/stash/bin/:$PATH
+PATH=~/bin:$PATH
+PATH=.:$PATH
 
-PATH=/usr/local/bin:/sbin:/usr/sbin:~/bin:~/bin:/repository/bin/:$PATH:.
+export EDITOR=~/bin/vim
 
 #PS1='\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m\n[\w] \$ '
 
