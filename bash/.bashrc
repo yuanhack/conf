@@ -67,7 +67,8 @@ function color_my_prompt {
     local __prompt_tail="\[\033[35m\]$"
     local __last_color="\[\033[00m\]"
     #export PS1="$? $__user_and_host $__cur_location $__git_branch_color$__git_branch$__prompt_tail$__last_color "
-    export PS1="\e[31m$? \e[36m\t \e[35m\u@\h \e[32m$__git_branch \e[m\n[\w] \\$ "
+    #export PS1="\e[31m$? \e[36m\t \e[35m\u@\h \e[32m$__git_branch \e[m\n[\w] \\$ "
+    export PS1="\e[32m$? \e[33m\t \e[35m\u@\h:\e[36m\w \e[31m$__git_branch\e[m\\$ "
 }
 color_my_prompt
 
