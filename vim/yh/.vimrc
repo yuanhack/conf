@@ -1,10 +1,10 @@
-" 在处理未保存或只读文件的时候，弹出确认  
+" 在处理未保存或只读文件的时候，弹出确认
 set confirm
 
-" 不要使用vi的键盘模式，而是vim自己的  
+" 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 
-" history文件中需要记录的行数  
+" history文件中需要记录的行数
 set history=500
 
 set report=0
@@ -30,17 +30,17 @@ set tags+=~/.systag
 filetype plugin indent on
 
 set ts=4            " tabstop
-set sw=4            " shiftwidth 
+set sw=4            " shiftwidth
 set et              " expandtab tab自动转换空格
-autocmd FileType c,cpp set sw=4 | set ts=4 | set et 
+autocmd FileType c,cpp set sw=4 | set ts=4 | set et
 
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set autoindent
-set cindent 
+set cindent
 set laststatus=2 " 总是显示状态栏
 "set mouse=a      " 此开关当用鼠标选择时不选择行号, 关闭该项mouse=
 "set cursorline   " 设置光标行标识后，下划线'_'导致在行中无法区分！
-"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white 
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 "hi CursorLine  cterm=bold ctermbg=0
 "highlight StatusLine cterm=italic ctermfg=10 ctermbg=4
 ""highlight StatusLine cterm=none ctermfg=10 ctermbg=4
@@ -62,7 +62,7 @@ function Del()
 	execute dnl
 endfunction
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FAST COMMENT OR DEL COMMENT
 vmap // !awk '{print "//"$0}' 
 vmap \\ !awk '{print substr($0,3)}' 
@@ -83,7 +83,7 @@ nmap fs<cr> :set foldmethod=syntax<cr>
 
 " cscope 快捷建库
 " 虽然可以快速重新生成cscope.out和相关文件并建立联系,但是有这么一个问题存在:
-"   当前编辑的一个文件时间会被修改，切换文件的时候会提示 .swp 
+"   当前编辑的一个文件时间会被修改，切换文件的时候会提示 .swp
 "   无法消除这个提示和 .swp文件只能退出vim才能删除, 必须退出vim重进, 让人很不舒服
 " nmap <F11>      :cs kill 0<cr>:!cscope -Rbq<cr>:cs add cscope.out<CR>:!echo cscope has reconstruction<cr>
 " imap <F11> <ESC>:cs kill 0<cr>:!cscope -Rbq<cr>:cs add cscope.out<CR>:!echo cscope has reconstruction<cr>
@@ -91,10 +91,15 @@ nmap fs<cr> :set foldmethod=syntax<cr>
 " 禁用ctrl+z切换vim到后台,不然ctrl+z之后,fg回到vim后,cscope的连接就失效了,没找到办法回复,重建连接也不行
 "map  :f
 
+" 删除行末空白符
+nmap sd<cr> :%s/\s\+$//<cr>
+vmap sd<cr> :s/\s\+$//<cr>
+" 删除空白行
+nmap sg<cr> :g/^\s*$/d<cr>
+vmap sg<cr> :g/^\s*$/d<cr>
 
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Insert standard header according to the file name
 " for example:
@@ -115,7 +120,7 @@ function AddH()
 	call append("2", "")
 	call append("3", "")
 	call append("4", "#ifdef __cplusplus")
-	call append("5", "extern \"C\"") 
+	call append("5", "extern \"C\"")
 	call append("6", "{")
 	call append("7", "#endif")
 	call append("8", "")
@@ -144,17 +149,17 @@ vmap <silent> \# :!sed 's/^\#//'<CR>
 " comment(/*  */) or uncomment your selected(under visual mode) lines
 vmap <silent> /* <Esc><Esc>:'< !sed 's/^/\/* /'<Esc>:'> !sed 's/$/ *\//'<CR>
 vmap <silent> \* <Esc><Esc>:'< !sed 's/^\/\* //'<Esc>:'> !sed 's/ \*\/$//'<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " 设置cscope快捷键
 cs add ./cscope.out
 nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR> 
-nmap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR> 
+nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 " 让vim记忆上次编辑的位置
@@ -202,20 +207,20 @@ nmap <F12> <esc><c-w>10+
 
 set makeprg=clear&&make
 
-" " ==========================  
-" " GNU 缩进风格  
-" " ==========================  
-" " 如果不喜欢GNU 缩进风格  
-" " 请注释掉函数后的au 一行  
-" " ==========================  
-" function! GnuIndent ()  
-"   let b:did_ftplugin = 1  
-"   setlocal cindent  
+" " ==========================
+" " GNU 缩进风格
+" " ==========================
+" " 如果不喜欢GNU 缩进风格
+" " 请注释掉函数后的au 一行
+" " ==========================
+" function! GnuIndent ()
+"   let b:did_ftplugin = 1
+"   setlocal cindent
 "   setlocal shiftwidth=4 tabstop=4 textwidth=78 softtabstop=4
-"   setlocal cinoptions=>2s,e-s,n-s,{1s,^-s,Ls,:s,=s,g0,+.5s,p2s,t0,(0  
-"   setlocal formatoptions-=t formatoptions+=croql  
-"   setlocal comments=sO:*\ -,mO:\ \ \ ,exO:*/,s1:/*,mb:\ ,ex:*/  
-"   set cpoptions-=C  
-"   set expandtab smarttab autoindent smartindent  
-" endfunction  
+"   setlocal cinoptions=>2s,e-s,n-s,{1s,^-s,Ls,:s,=s,g0,+.5s,p2s,t0,(0
+"   setlocal formatoptions-=t formatoptions+=croql
+"   setlocal comments=sO:*\ -,mO:\ \ \ ,exO:*/,s1:/*,mb:\ ,ex:*/
+"   set cpoptions-=C
+"   set expandtab smarttab autoindent smartindent
+" endfunction
 " au FileType c,cpp,h,hh call GnuIndent()
