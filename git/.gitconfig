@@ -1,0 +1,20 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	st = status
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+	excludesfile = /stash/conf/git/gitignore_global
+[user]
+	name = Yuan Hong
+	email = yuanhack@163.com
+[push]
+	default = simple
+[http]
+	postBuffer = 24288000
