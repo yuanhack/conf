@@ -63,13 +63,6 @@ function Del()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FAST COMMENT OR DEL COMMENT
-vmap // !awk '{print "//"$0}' 
-vmap \\ !awk '{print substr($0,3)}' 
-vmap # !awk '{ print "\# "$0}' 
-vmap " !awk '{ print "\" "$0}' 
-vmap 3 !awk '{ print substr($0,3)}' 
-
 " 快捷设置查找高亮开关
 " s + 回车
 map s<cr>  :set hlsearch
