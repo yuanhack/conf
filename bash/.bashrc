@@ -43,12 +43,15 @@ alias rm='rm2'
 # CentOS Linux release 7.0.1406 (Core) default PATH:
 #   /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:~/bin
 ####################################################################
+PATH=/usr/local/bin:$PATH
 PATH=/sbin:$PATH
 PATH=/stash/bin:$PATH
 PATH=~/bin:$PATH
 PATH=.:$PATH
+PATH=$PATH:~/gorevel/bin
 
 export EDITOR=~/bin/vim
+export GOPATH=~/gorevel
 
 #PS1='\e[31m$?\e[m \e[36m\t\e[m \e[35m\u@\h\e[m\n[\w] \$ '
 
